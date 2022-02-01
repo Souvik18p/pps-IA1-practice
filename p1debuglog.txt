@@ -1,0 +1,62 @@
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x81c: file p1final.c, line 19.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1final.c:19
+19  {
+(gdb) n
+21    input(&a, &b);
+(gdb) s
+input (a=0x7ffdae73ae3c, b=0x7ffdae73ae40) at p1final.c:5
+5     printf("Enter the first number: \n");
+(gdb) n
+Enter the first number: 
+6     scanf("%d",a);
+(gdb) n
+n
+7     printf("Enter the second number: \n");
+(gdb) n
+Enter the second number: 
+8     scanf("%d",b);
+(gdb) n
+9   }
+(gdb) n
+main () at p1final.c:22
+22    add(a, b, &sum);
+(gdb) s
+add (a=22001, b=-1368150224, sum=0x7ffdae73ae44) at p1final.c:12
+12    *sum = a + b;
+(gdb) n
+13  }
+(gdb) n
+main () at p1final.c:23
+23    output(a, b, sum);
+(gdb) s
+output (a=22001, b=-1368150224, sum=-1368128223) at p1final.c:16
+16    printf("The sum of %d and %d is: %d\n", a, b, sum);
+(gdb) n
+The sum of 22001 and -1368150224 is: -1368128223
+17  }
+(gdb) n
+main () at p1final.c:24
+24    return 0;
+(gdb)

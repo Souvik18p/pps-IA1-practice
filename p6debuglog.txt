@@ -1,0 +1,87 @@
+gcc -g p6final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x95b: file p6final.c, line 63.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p6final.c:63
+63  {
+(gdb) n
+66      input(a,b);
+(gdb) s
+input (a=0x7ffc388ecdd0 "\001", b=0x7ffc388ecdf0 "\320\t\240\370IV")
+    at p6final.c:5
+5       printf("Enter a word = \n");
+(gdb) n
+Enter a word = 
+6       scanf("%s",a);
+(gdb) n
+n
+7       printf("Enter a word = \n");
+(gdb) n
+Enter a word = 
+8       scanf("%s",b);
+(gdb) n
+n
+9   }
+(gdb) n
+main () at p6final.c:67
+67      ans=cmp(a,b);
+(gdb) s
+cmp (a=0x7ffc388ecdd0 "n", b=0x7ffc388ecdf0 "n") at p6final.c:13
+13      int i=0,result;
+(gdb) n
+14      while (a[i]!='\0'&&b[i]!='\0')
+(gdb) n
+16          if(a[i]>b[i])
+(gdb) n
+21          else if(b[i]>a[i])
+(gdb) n
+28              i++;
+(gdb) n
+30          if(a[i]=='\0')
+(gdb) n
+32              result=1;
+(gdb) n
+38          if(a[i]=='\0'&&b[i]=='\0')
+(gdb) n
+40              result=0;
+(gdb) n
+14      while (a[i]!='\0'&&b[i]!='\0')
+(gdb) n
+43      return result;
+(gdb) n
+44  }
+(gdb) n
+main () at p6final.c:68
+68      output(a,b,ans);
+(gdb) s
+output (a=0x7ffc388ecdd0 "n", b=0x7ffc388ecdf0 "n", ans=0) at p6final.c:48
+48      if(ans==-1)
+(gdb) n
+52      else if(ans==1)
+(gdb) n
+58          printf("%s is equal to %s",b,a);
+(gdb) n
+60  }
+(gdb) n
+main () at p6final.c:69
+69      return 0;
+(gdb) 
